@@ -10,4 +10,3 @@ _classify(training_data, test_example, k)_
 
 _classify_many(training_data, testing_data, k, get_confidence=False)_
 
-https://github.com/MA-Tex/Binary-Machine-Learning-Classifiers/issues/1#issue-420644942
