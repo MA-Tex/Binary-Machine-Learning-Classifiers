@@ -10,4 +10,6 @@ _classify(training_data, test_example, k)_
 
 _classify_many(training_data, testing_data, k, get_confidence=False)_
 
+*Real example screenshot on a data set with size 1000 and _K_=15
+
 ![image](https://user-images.githubusercontent.com/31454258/54305706-e2183300-45d8-11e9-8953-c5d98dd32160.png)
