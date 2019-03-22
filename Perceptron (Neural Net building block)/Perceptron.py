@@ -2,7 +2,6 @@ from random import randint
 import numpy as np
 import os
 
-
 def __check(data):
     t = type(data)
     if t == str:
