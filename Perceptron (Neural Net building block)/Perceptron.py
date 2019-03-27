@@ -10,8 +10,9 @@ def __check(data):
         if data[-4:] != ".csv":
             print("Only .csv is allowed for a data set path!")
             return None
-        if os._exists(data):
+        if os.path.exists(data):
             data = np.genfromtxt(data, delimiter=",")
+            np.random.shuffle(data)
             return data
         else:
             print(data, "doesn't exist!")
@@ -71,6 +72,7 @@ def train(training_data, epochs=3, learning_rate=0.8, decaying_learning_rate=Fal
             if training_data[i][-1] != expected_label:
                 constant = learning_rate*(training_data[i][-1] - expected_label)
                 weights = weights + (constant * np.append(1, training_data[i][:-1]))
+    return training_data
 
 
 def __get_expected(w, test_data):
@@ -79,6 +81,8 @@ def __get_expected(w, test_data):
 
 
 def __plot_seperator(dots):
+    if dots is None:
+        return None
     plt.scatter(dots[:, 0], dots[:, 1], c=dots[:, 2])
     lower_range = min(min(dots[:, 0]), min(dots[:, 1]))
     max_range = max(max(dots[:, 0]), max(dots[:, 1]))
@@ -88,7 +92,6 @@ def __plot_seperator(dots):
     plt.show()
 
 
-# data = np.genfromtxt("test_data_set_perceptron.csv", delimiter=",")
-# np.random.shuffle(data)
-# train(data, learning_rate=1, decaying_learning_rate=True)
-# __plot_seperator(data)
+data = "test_data_set_perceptron.csv"
+data = train(data, learning_rate=1, decaying_learning_rate=True)
+__plot_seperator(data)
