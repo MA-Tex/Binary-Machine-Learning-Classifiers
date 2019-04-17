@@ -3,6 +3,7 @@ import numpy as np
 import os
 import matplotlib.pyplot as plt
 
+
 def __check(data):
     t = type(data)
     if t == str:
